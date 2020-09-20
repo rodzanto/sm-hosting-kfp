@@ -115,7 +115,7 @@ aws eks describe-cluster --name kubeflow-sm --query "cluster.identity.oidc.issue
 }
 ```
 
-### Lab#1: Create your first Pipeline with Amazon SageMaker Components
+### Lab #1: Creating your first pipeline with Amazon SageMaker Components for Kubeflow
 
 1. In the AWS console look for Amazon SageMaker, click on "Notebook instances", and access your Jupyter notebook by clicking "Open Jupyter" (make sure the notebook is in status "InService").
 
@@ -126,12 +126,16 @@ aws eks describe-cluster --name kubeflow-sm --query "cluster.identity.oidc.issue
 - Click on "Create experiment", with Name "mnist_classification" and hit "Next".
 - Start your first run with "role_arn" the name of your node-group role from AWS IAM (should be something like: "arn:aws:iam::ACCOUNTID:role/eksctl-kubeflow-sm-nodegroup-cpu-NodeInstanceRole-XXXXXXXXXX"), and "bucket_name" the name of your S3 bucket (should be something like: "sagemaker-us-west-2-ACCOUNTID"), and hit "Start".
 - Access your Run and monitor the execution of each step of the pipeline.
+<img src="f1.png" alt="pipeline" width="600"/>
 
+### Lab #2: Exploring Amazon SageMaker Components with Elastic Inference and Multi-Model Endpoints
 
-
-
-
-
-
+1. Go back to the "Components-pipelines" notebook:
+- Continue with the steps for the Lab #2
+- Now download the resulting file "ei-mme-pipeline.tar.gz" to your PC, and open the Kubeflow Pipeline dashboard.
+- Go to Pipelines in the left-menu, and click on "Upload pipeline", write Name and Description "ei_mme" and select "File" pointing to the file you just downloaded, and hit "Create".
+- Click on "Create experiment", with Name "ei_mme" and hit "Next".
+- Start your first run with "role_arn" the name of your node-group role from AWS IAM (should be something like: "arn:aws:iam::ACCOUNTID:role/eksctl-kubeflow-sm-nodegroup-cpu-NodeInstanceRole-XXXXXXXXXX"), and "bucket_name" the name of your S3 bucket (should be something like: "sagemaker-us-west-2-ACCOUNTID"), and hit "Start".
+- Access your Run and monitor the execution of each step of the pipeline.
 
 
