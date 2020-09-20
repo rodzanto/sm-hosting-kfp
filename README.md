@@ -85,15 +85,47 @@ kfctl apply -V -f kfctl_aws.yaml
 ```
 kubectl get nodes    (check both ready)
 kubectl -n kubeflow get all    (wait for Running)
-kubectl get ingress -n istio-system    (provides the URL for accessing the KFP dashboard) 
+kubectl get ingress -n istio-system    (provides the URL for accessing the KFP dashboard, access from your browser and setup the user) 
 ```
 
-- f. Setup AWS IAM permissions for the Service Account:
+- f. Setup AWS IAM permissions for the Service Account: First get the OIDC...
 ```
 eksctl utils associate-iam-oidc-provider --cluster kubeflow-sm --region us-west-2 --approve
 aws eks describe-cluster --name kubeflow-sm --query "cluster.identity.oidc.issuer" --output text    (take note of the OIDC)
 ```
-Go back to the AWS console and look for the service IAM. Go to "Roles" and click the role created for the node-group
+
+- g. Now go back to the AWS console and look for the service IAM. Go to "Roles" and click the role that was created for the node-group (it should be called like: "eksctl-kubeflow-sm-nodegroup-cpu-NodeInstanceRole-XXXXXXXXX"). Click "Attach policies" and select the "AmazonSageMakerFullAccess" policy, click on "Attach policy", repeat for the policy "AmazonS3FullAccess". Finally, click on "Trust relationship" and "Edit trust relationship", replace the current policy with the following and hit "Update trust policy". *Note normally we would use here the OIDC that we got from the Kubeflow installation above to make the permissions more restrictive, but for the purposes of this workshop we will work with the FullAccess policy. For more details on this check the [example here](https://github.com/kubeflow/pipelines/blob/master/samples/contrib/aws-samples/README.md)*
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Service": [
+          "ec2.amazonaws.com",
+          "sagemaker.amazonaws.com"
+        ]
+      },
+      "Action": "sts:AssumeRole"
+    }
+  ]
+}
+```
+
+9. In the AWS console look for Amazon SageMaker, click on "Notebook instances", and access your Jupyter notebook by clicking "Open Jupyter" (make sure the notebook is in status "InService").
+
+10. Lab #1: MNIST Classification pipeline:
+- Open the notebook "Components", and follow the instructions to prepare the pipeline artifacts for this Lab.
+- Now download the resulting file "mnist-classification-pipeline.tar.gz" to your PC, and open the Kubeflow Pipeline dashboard.
+- Go to Pipelines in the left-menu, and click on "Upload pipeline", write Name and Description "mnist_classification" and select "File" pointing to the file you just downloaded, and hit "Create".
+- Click on "Create experiment", with Name "mnist_classification" and hit "Next".
+- Start your first run with "role_arn" the name of your node-group role from AWS IAM (should be something like: "arn:aws:iam::ACCOUNTID:role/eksctl-kubeflow-sm-nodegroup-cpu-NodeInstanceRole-XXXXXXXXXX"), and "bucket_name" the name of your S3 bucket (should be something like: "sagemaker-us-west-2-ACCOUNTID"), and hit "Start".
+- Access your Run and monitor the execution of each step of the pipeline.
+
+
+
+
 
 
 
