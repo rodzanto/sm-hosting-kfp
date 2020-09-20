@@ -5,6 +5,8 @@ For this workshop, we will create an Amazon EC2 instance that will act as the ga
 
 ## Instructions
 
+### Setup Kubeflow Pipelines and your AWS environment
+
 1. Access your AWS Console with the URL provided, make sure you are in the region of Oregon (us-west-2). Look for the service Amazon EC2 and go to Instances. Create an EC2 instance with image “DeepLearning AMI (Linux)” and instance type “t3.medium”. Create a SSH key and save it in a safe location (we will need it later).
 *Note we are using the DeepLearning AMI as it already comes with some packages that we would need later.*
 
@@ -113,9 +115,11 @@ aws eks describe-cluster --name kubeflow-sm --query "cluster.identity.oidc.issue
 }
 ```
 
-9. In the AWS console look for Amazon SageMaker, click on "Notebook instances", and access your Jupyter notebook by clicking "Open Jupyter" (make sure the notebook is in status "InService").
+### Lab#1: Create your first Pipeline with Amazon SageMaker Components
 
-10. Lab #1: MNIST Classification pipeline:
+1. In the AWS console look for Amazon SageMaker, click on "Notebook instances", and access your Jupyter notebook by clicking "Open Jupyter" (make sure the notebook is in status "InService").
+
+2. MNIST Classification pipeline:
 - Open the notebook "Components", and follow the instructions to prepare the pipeline artifacts for this Lab.
 - Now download the resulting file "mnist-classification-pipeline.tar.gz" to your PC, and open the Kubeflow Pipeline dashboard.
 - Go to Pipelines in the left-menu, and click on "Upload pipeline", write Name and Description "mnist_classification" and select "File" pointing to the file you just downloaded, and hit "Create".
