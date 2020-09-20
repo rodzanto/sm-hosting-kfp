@@ -126,8 +126,11 @@ aws eks describe-cluster --name kubeflow-sm --query "cluster.identity.oidc.issue
 - Click on "Create experiment", with Name "mnist_classification" and hit "Next".
 - Start your first run with "role_arn" the name of your node-group role from AWS IAM (should be something like: "arn:aws:iam::ACCOUNTID:role/eksctl-kubeflow-sm-nodegroup-cpu-NodeInstanceRole-XXXXXXXXXX"), and "bucket_name" the name of your S3 bucket (should be something like: "sagemaker-us-west-2-ACCOUNTID"), and hit "Start".
 - Access your Run and monitor the execution of each step of the pipeline.
+
 <img src="f1.png" alt="pipeline" width="600"/>
-- If you want to run on-line predictions, you can use the "Predictions" notebook provided.
+
+- If you also want to run on-line predictions, you can use the "Predictions" notebook provided.
+
 <img src="f2.png" alt="pipeline" width="600"/>
 
 
