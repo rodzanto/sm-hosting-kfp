@@ -120,7 +120,7 @@ aws eks describe-cluster --name kubeflow-sm --query "cluster.identity.oidc.issue
 1. In the AWS console look for Amazon SageMaker, click on "Notebook instances", and access your Jupyter notebook by clicking "Open Jupyter" (make sure the notebook is in status "InService").
 
 2. MNIST Classification pipeline:
-- Open the notebook "Components", and follow the instructions to prepare the pipeline artifacts for this Lab.
+- Open the notebook "Components-pipelines", and follow the instructions to prepare the pipeline artifacts for this Lab.
 - Now download the resulting file "mnist-classification-pipeline.tar.gz" to your PC, and open the Kubeflow Pipeline dashboard.
 - Go to Pipelines in the left-menu, and click on "Upload pipeline", write Name and Description "mnist_classification" and select "File" pointing to the file you just downloaded, and hit "Create".
 - Click on "Create experiment", with Name "mnist_classification" and hit "Next".
