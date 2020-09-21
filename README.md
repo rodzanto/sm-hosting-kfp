@@ -12,7 +12,7 @@ For this workshop, we will use an Amazon EC2 instance as gateway for controlling
 
 ### Setup Kubeflow Pipelines and your AWS environment
 
-1. Access your AWS Console with the URL provided, make sure you are in the region of Oregon (us-west-2). Look for the service Amazon EC2 and go to Instances. Create an EC2 instance with image “DeepLearning AMI (Linux)” and instance type “t3.medium”. Create a SSH key and save it in a safe location (we will need it later).
+1. Access your AWS Console with the URL provided, make sure you are in the region of Oregon (us-west-2). Look for the service Amazon EC2 and go to Instances. Create an EC2 instance with image “Deep Learning AMI (Amazon Linux 2)” and instance type “t3.medium”. Create a SSH key and save it in a safe location (we will need it later).
 *Note we are using the DeepLearning AMI as it already comes with some packages that we would need later.*
 
 2. Open a terminal in your PC and make sure you do "chmod 400 xxxx.pem" to your downloaded key from the previous step.
