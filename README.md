@@ -97,6 +97,7 @@ kubectl get nodes    ###check both nodes are Ready
 kubectl -n kubeflow get all    ###wait for all showing Running
 kubectl get ingress -n istio-system    ###provides the URL for accessing the KFP dashboard - access from your browser and setup the user 
 ```
+*Note the last commands' output is the URL for the Kubeflow Pipelines Dashboard, and you can find the user and pass in the "kfctl_aws.yaml" file.*
 
 - f. Setup AWS IAM permissions for the Service Account: First get the OIDC...
 ```
