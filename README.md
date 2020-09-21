@@ -88,7 +88,8 @@ export no_proxy=$no_proxy,.svc,.svc.cluster.local
 export PATH=$PATH:/home/ec2-user
 kfctl apply -V -f kfctl_aws.yaml
 ```
-*Note you might see a warning for cert-manager, let it re-try until the warning clears.*
+*Note 1: you might see a warning for cert-manager, let it re-try until the warning clears.*
+*Note 2: in some rare cases kfctl might have issues for untar the file "vX.X-branch.tar.gz". In this case proceed to manually untar the file and point the "kfctl_aws.yaml" to this location (ask for AWS team help for this procedure if needed).*
 
 - d. Verify the installation:
 ```
