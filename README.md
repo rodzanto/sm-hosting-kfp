@@ -75,8 +75,8 @@ tar -xvf kfctl_v1.1.0-0-g9a3621e_linux.tar.gz
 export PATH=$PATH:/home/ec2-user
 export CONFIG_URI="https://raw.githubusercontent.com/kubeflow/manifests/v1.1-branch/kfdef/kfctl_aws.v1.1.0.yaml"
 export AWS_CLUSTER_NAME=kubeflow-sm
-mkdir ${AWS_CLUSTER_NAME} && cd ${AWS_CLUSTER_NAME}
-wget -O kfctl_aws.yaml $CONFIG_URI
+mkdir ${AWS_CLUSTER_NAME}
+cd ${AWS_CLUSTER_NAME} && wget -O kfctl_aws.yaml $CONFIG_URI
 ```
 
 - b. Go back to the AWS Console in your browser and go to Amazon SageMaker. Go to Notebook instances and “Create notebook instance”, put a Name, select “Notebook instance type” as “t3.medium”, expand the “Git repositories” menu and select “Clone a public Git repository” writing this URL: "https://github.com/rodzanto/sm-hosting-kfp/". Click “Create notebook instance”
