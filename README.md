@@ -6,7 +6,7 @@ For this workshop, we will use an Amazon EC2 instance as gateway for controlling
 1. Explore how to setup Kubeflow Pipelines with Amazon EC2 and Amazon EKS, and configuring roles for interacting with Amazon SageMaker
 2. Explore how to configure and use [Amazon SageMaker Components for Kubeflow Pipelines](https://docs.aws.amazon.com/sagemaker/latest/dg/amazon-sagemaker-components-for-kubeflow-pipelines.html)
 3. Get experience defining ML pipelines in Kubeflow that rely on Amazon SageMaker for processing, hyper-parameter optimization, training, batch inferences, and online deployment of hosting endpoints
-4. Explore other hosting features provided in Amazon SageMaker like Elastic Inference, Multi-Model Endpoints, or Model Monitoring
+4. Explore other hosting features provided in Amazon SageMaker like Elastic Inference, Endpoints with different model variants, or Model Monitoring
 
 ## Instructions
 
@@ -141,13 +141,13 @@ Great, you now have a working Kubeflow cluster with integration to Amazon SageMa
 <img src="f2.png" alt="pipeline" width="600"/>
 
 
-### Lab #2: Exploring Amazon SageMaker Components with Elastic Inference and Multi-Model Endpoints
+### Lab #2: Exploring Amazon SageMaker Components with Elastic Inference and Endpoints with multiple model variants
 
 1. Go back to the "Components-pipelines" notebook:
 - Continue with the steps for the Lab #2
-- Now download the resulting file "ei-mme-pipeline.tar.gz" to your PC, and open the Kubeflow Pipeline dashboard.
-- Go to Pipelines in the left-menu, and click on "Upload pipeline", write Name and Description "ei_mme" and select "File" pointing to the file you just downloaded, and hit "Create".
-- Click on "Create experiment", with Name "ei_mme" and hit "Next".
+- Now download the resulting file "ei-mmv-pipeline.tar.gz" to your PC, and open the Kubeflow Pipeline dashboard.
+- Go to Pipelines in the left-menu, and click on "Upload pipeline", write Name and Description "ei_mmv" and select "File" pointing to the file you just downloaded, and hit "Create".
+- Click on "Create experiment", with Name "ei_mmv" and hit "Next".
 - Start your first run with "role_arn" the name of your node-group role from AWS IAM (should be something like: "arn:aws:iam::ACCOUNTID:role/eksctl-kubeflow-sm-nodegroup-cpu-NodeInstanceRole-XXXXXXXXXX"), and "bucket_name" the name of your S3 bucket (should be something like: "sagemaker-us-west-2-ACCOUNTID"), and hit "Start".
 - Access your Run and monitor the execution of each step of the pipeline.
 
