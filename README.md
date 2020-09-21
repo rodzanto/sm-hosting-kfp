@@ -93,9 +93,9 @@ kfctl apply -V -f kfctl_aws.yaml
 
 - d. Verify the installation:
 ```
-kubectl get nodes    (check both ready)
-kubectl -n kubeflow get all    (wait for Running)
-kubectl get ingress -n istio-system    (provides the URL for accessing the KFP dashboard, access from your browser and setup the user) 
+kubectl get nodes    ###check both nodes are Ready
+kubectl -n kubeflow get all    ###wait for all showing Running
+kubectl get ingress -n istio-system    ###provides the URL for accessing the KFP dashboard - access from your browser and setup the user 
 ```
 
 - f. Setup AWS IAM permissions for the Service Account: First get the OIDC...
