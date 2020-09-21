@@ -140,7 +140,7 @@ Great, you now have a working Kubeflow cluster with integration to Amazon SageMa
 
 <img src="f1.png" alt="pipeline" width="600"/>
 
-- If you also want to run on-line predictions, you can use the "Predictions" notebook provided.
+- If you also want to run on-line predictions, you can use the "Predictions" notebook provided (Lab #1).
 
 <img src="f2.png" alt="pipeline" width="600"/>
 
@@ -155,4 +155,10 @@ Great, you now have a working Kubeflow cluster with integration to Amazon SageMa
 - Start your first run with "role_arn" the name of your node-group role from AWS IAM (should be something like: "arn:aws:iam::ACCOUNTID:role/eksctl-kubeflow-sm-nodegroup-cpu-NodeInstanceRole-XXXXXXXXXX"), and "bucket_name" the name of your S3 bucket (should be something like: "sagemaker-us-west-2-ACCOUNTID"), and hit "Start".
 - Access your Run and monitor the execution of each step of the pipeline.
 
+<img src="f3.png" alt="pipeline" width="600"/>
 
+- If you also want to run on-line predictions, you can use the "Predictions" notebook provided (Lab #2).
+
+<img src="f4.png" alt="pipeline" width="600"/>
+
+Congratulations, you have reached the end of this workshop. For learning more, visit the documentation and GitHub examples.
