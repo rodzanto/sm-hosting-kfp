@@ -120,6 +120,8 @@ aws eks describe-cluster --name kubeflow-sm --query "cluster.identity.oidc.issue
 }
 ```
 
+Great, you now have a working Kubeflow cluster. It is time to start defining the pipelines in the next steps.
+
 ### Lab #1: Creating your first pipeline with Amazon SageMaker Components for Kubeflow
 
 1. In the AWS console look for Amazon SageMaker, click on "Notebook instances", and access your Jupyter notebook by clicking "Open Jupyter" (make sure the notebook is in status "InService").
