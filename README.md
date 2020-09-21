@@ -1,4 +1,4 @@
-# Models Hosting with Amazon SageMaker Components for Kubeflow Pipelines
+# ML Hosting with Amazon SageMaker Components for Kubeflow Pipelines
 
 For this workshop, we will create an Amazon EC2 instance that will act as the gateway node for controlling our Kubeflow cluster, and will later work with a Jupyter notebook to prepare a Kubeflow Pipeline. Finally, we will run some examples for going through the options that Amazon SageMaker provides for model inferences through the use of Components for Kubeflow Pipelines.
 
