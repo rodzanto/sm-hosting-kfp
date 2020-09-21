@@ -149,9 +149,9 @@ Great, you now have a working Kubeflow cluster with integration to Amazon SageMa
 
 1. Go back to the "Components-pipelines" notebook:
 - Continue with the steps for the Lab #2
-- Now download the resulting file "cifar-ei-mmv-pipeline.tar.gz" to your PC, and open the Kubeflow Pipeline dashboard.
-- Go to Pipelines in the left-menu, and click on "Upload pipeline", write Name and Description "ei_mmv" and select "File" pointing to the file you just downloaded, and hit "Create".
-- Click on "Create experiment", with Name "ei_mmv" and hit "Next".
+- Now download the resulting file "caltech-ei-mmv-pipeline.tar.gz" to your PC, and open the Kubeflow Pipeline dashboard.
+- Go to Pipelines in the left-menu, and click on "Upload pipeline", write Name and Description "caltech_ei_mmv" and select "File" pointing to the file you just downloaded, and hit "Create".
+- Click on "Create experiment", with Name "caltech_ei_mmv" and hit "Next".
 - Start your first run with "role_arn" the name of your node-group role from AWS IAM (should be something like: "arn:aws:iam::ACCOUNTID:role/eksctl-kubeflow-sm-nodegroup-cpu-NodeInstanceRole-XXXXXXXXXX"), and "bucket_name" the name of your S3 bucket (should be something like: "sagemaker-us-west-2-ACCOUNTID"), and hit "Start".
 - Access your Run and monitor the execution of each step of the pipeline.
 
