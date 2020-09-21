@@ -41,7 +41,7 @@ echo 'export PATH=$PATH:$HOME/bin' >> ~/.bashrc
 aws-iam-authenticator help
 ```
 
-6. Copy and paste your temporary credentials for being able to run the eksctl command in the next step, e.g.:
+6. Copy and paste your temporary credentials for being able to run the eksctl command in the next step. Note if you are using an AWS Event Engine workshop account you can copy this information directly from the dashboard, e.g.:
 ```
 export AWS_DEFAULT_REGION=us-west-2
 export AWS_ACCESS_KEY_ID=xxxxxxxxxxxxxx
