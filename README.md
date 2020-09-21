@@ -41,7 +41,7 @@ echo 'export PATH=$PATH:$HOME/bin' >> ~/.bashrc
 aws-iam-authenticator help
 ```
 
-6. Copy and paste your temporary credentials for being able to run the AWS CLI command, e.g.:
+6. Copy and paste your temporary credentials for being able to run the eksctl command in the next step, e.g.:
 ```
 export AWS_DEFAULT_REGION=us-west-2
 export AWS_ACCESS_KEY_ID=xxxxxxxxxxxxxx
