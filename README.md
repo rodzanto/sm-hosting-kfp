@@ -120,7 +120,7 @@ aws eks describe-cluster --name kubeflow-sm --query "cluster.identity.oidc.issue
 }
 ```
 
-Great, you now have a working Kubeflow cluster. It is time to start defining the pipelines in the next steps.
+Great, you now have a working Kubeflow cluster with integration to Amazon SageMaker and other services like Amazon S3. It is time to start defining the pipelines in the next steps.
 
 ### Lab #1: Creating your first pipeline with Amazon SageMaker Components for Kubeflow
 
