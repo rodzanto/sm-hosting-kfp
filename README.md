@@ -12,6 +12,8 @@ For this workshop, we will use an Amazon EC2 instance as gateway for controlling
 
 ### Setup Kubeflow Pipelines and your AWS environment
 
+*Note there are other resources for helping you creating the Kubeflow cluster from e.g. AWS Cloud9 like [this one](https://github.com/aws-samples/eks-kubeflow-cloudformation-quick-start). In this case we will use the EC2 approach directly.*
+
 1. Access your AWS Console with the URL provided, make sure you are in the region of Oregon (us-west-2). Look for the service Amazon EC2 and go to Instances. Create an EC2 instance with image “Deep Learning AMI (Amazon Linux 2)” and instance type “t3.medium”. Create a SSH key and save it in a safe location (we will need it later).
 *Note we are using the DeepLearning AMI as it already comes with some packages that we would need later.*
 
