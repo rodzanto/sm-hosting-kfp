@@ -2,7 +2,7 @@
 
 For this workshop, we will use an Amazon EC2 instance as gateway for controlling our Kubeflow cluster in Amazon EKS. We will then work with a Jupyter notebook to setup some pipelines, exploring different machine learning inference options and model hosting features provided with Amazon SageMaker Components for Kubeflow Pipelines.
 
-**Obectives:**
+**Objectives:**
 1. Explore how to setup Kubeflow Pipelines with Amazon EC2 and Amazon EKS, and configuring roles for interacting with Amazon SageMaker
 2. Explore how to configure and use [Amazon SageMaker Components for Kubeflow Pipelines](https://docs.aws.amazon.com/sagemaker/latest/dg/amazon-sagemaker-components-for-kubeflow-pipelines.html)
 3. Get experience defining ML pipelines in Kubeflow that rely on Amazon SageMaker for processing, hyper-parameter optimization, training, batch inferences, and online deployment of hosting endpoints
