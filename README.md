@@ -2,6 +2,8 @@
 
 For this workshop, we will use an Amazon EC2 instance as gateway for controlling our Kubeflow cluster in Amazon EKS. We will then work with a Jupyter notebook to setup some pipelines, exploring different machine learning inference options and model hosting features provided with Amazon SageMaker Components for Kubeflow Pipelines.
 
+<img src="./images/f0.png" alt="pipeline" width="500"/>
+
 **Objectives:**
 1. Explore how to setup Kubeflow Pipelines with Amazon EC2 and Amazon EKS, and configuring roles for interacting with Amazon SageMaker
 2. Explore how to configure and use [Amazon SageMaker Components for Kubeflow Pipelines](https://docs.aws.amazon.com/sagemaker/latest/dg/amazon-sagemaker-components-for-kubeflow-pipelines.html)
@@ -138,11 +140,11 @@ Great, you now have a working Kubeflow cluster with integration to Amazon SageMa
 - Start your first run with "role_arn" the name of your node-group role from AWS IAM (should be something like: "arn:aws:iam::ACCOUNTID:role/eksctl-kubeflow-sm-nodegroup-cpu-NodeInstanceRole-XXXXXXXXXX"), and "bucket_name" the name of your S3 bucket (should be something like: "sagemaker-us-west-2-ACCOUNTID"), and hit "Start".
 - Access your Run and monitor the execution of each step of the pipeline.
 
-<img src="f1.png" alt="pipeline" width="600"/>
+<img src="./images/f1.png" alt="pipeline" width="600"/>
 
 - If you also want to run on-line predictions, you can use the "Predictions" notebook provided (Lab #1).
 
-<img src="f2.png" alt="pipeline" width="600"/>
+<img src="./images/f2.png" alt="pipeline" width="600"/>
 
 
 ### Lab #2: Exploring Amazon SageMaker Components with Elastic Inference and Endpoints with multiple model variants
@@ -155,10 +157,10 @@ Great, you now have a working Kubeflow cluster with integration to Amazon SageMa
 - Start your first run with "role_arn" the name of your node-group role from AWS IAM (should be something like: "arn:aws:iam::ACCOUNTID:role/eksctl-kubeflow-sm-nodegroup-cpu-NodeInstanceRole-XXXXXXXXXX"), and "bucket_name" the name of your S3 bucket (should be something like: "sagemaker-us-west-2-ACCOUNTID"), and hit "Start".
 - Access your Run and monitor the execution of each step of the pipeline.
 
-<img src="f3.png" alt="pipeline" width="600"/>
+<img src="./images/f3.png" alt="pipeline" width="600"/>
 
 - If you also want to run on-line predictions, you can use the "Predictions" notebook provided (Lab #2).
 
-<img src="f4.png" alt="pipeline" width="600"/>
+<img src="./images/f4.png" alt="pipeline" width="600"/>
 
 Congratulations, you have reached the end of this workshop. For learning more, visit the documentation and GitHub examples.
