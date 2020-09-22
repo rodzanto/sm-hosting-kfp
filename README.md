@@ -101,13 +101,13 @@ kubectl get ingress -n istio-system    ###provides the URL for accessing the KFP
 ```
 *Note the last commands' output is the URL for the Kubeflow Pipelines Dashboard, and you can find the user and pass in the "kfctl_aws.yaml" file.*
 
-- f. Setup AWS IAM permissions for the Service Account: First get the OIDC...
+- e. Setup AWS IAM permissions for the Service Account: First get the OIDC...
 ```
 eksctl utils associate-iam-oidc-provider --cluster kubeflow-sm --region us-west-2 --approve
 aws eks describe-cluster --name kubeflow-sm --query "cluster.identity.oidc.issuer" --output text    ###take note of the OIDC
 ```
 
-- g. Now go back to the AWS console and look for the service IAM. Go to "Roles" and click the role that was created for the node-group (it should be called like: "eksctl-kubeflow-sm-nodegroup-cpu-NodeInstanceRole-XXXXXXXXX"). Click "Attach policies" and select the "AmazonSageMakerFullAccess" policy, click on "Attach policy", repeat for the policy "AmazonS3FullAccess". Finally, click on "Trust relationship" and "Edit trust relationship", replace the current policy with the following and hit "Update trust policy". *Note normally we would use here the OIDC that we got from the Kubeflow installation above to make the permissions more restrictive, but for the purposes of this workshop we will work with the FullAccess policy. For more details on this check the [documentation here](https://docs.aws.amazon.com/sagemaker/latest/dg/usingamazon-sagemaker-components.html)*
+- f. Now go back to the AWS console and look for the service IAM. Go to "Roles" and click the role that was created for the node-group (it should be called like: "eksctl-kubeflow-sm-nodegroup-cpu-NodeInstanceRole-XXXXXXXXX"). Click "Attach policies" and select the "AmazonSageMakerFullAccess" policy, click on "Attach policy", repeat for the policy "AmazonS3FullAccess". Finally, click on "Trust relationship" and "Edit trust relationship", replace the current policy with the following and hit "Update trust policy". *Note normally we would use here the OIDC that we got from the Kubeflow installation above to make the permissions more restrictive, but for the purposes of this workshop we will work with the FullAccess policy. For more details on this check the [documentation here](https://docs.aws.amazon.com/sagemaker/latest/dg/usingamazon-sagemaker-components.html)*
 ```
 {
   "Version": "2012-10-17",
