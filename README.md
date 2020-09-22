@@ -107,7 +107,10 @@ eksctl utils associate-iam-oidc-provider --cluster kubeflow-sm --region us-west-
 aws eks describe-cluster --name kubeflow-sm --query "cluster.identity.oidc.issuer" --output text    ###take note of the OIDC
 ```
 
-- f. Now go back to the AWS console and look for the service IAM. Go to "Roles" and click the role that was created for the node-group (it should be called like: "eksctl-kubeflow-sm-nodegroup-cpu-NodeInstanceRole-XXXXXXXXX"). Click "Attach policies" and select the "AmazonSageMakerFullAccess" policy, click on "Attach policy", repeat for the policy "AmazonS3FullAccess". Finally, click on "Trust relationship" and "Edit trust relationship", replace the current policy with the following and hit "Update trust policy". *Note normally we would use here the OIDC that we got from the Kubeflow installation above to make the permissions more restrictive, but for the purposes of this workshop we will work with the FullAccess policy. For more details on this check the [documentation here](https://docs.aws.amazon.com/sagemaker/latest/dg/usingamazon-sagemaker-components.html)*
+- f. Now go back to the AWS console and look for the service IAM. Go to "Roles" and click the role that was created for the node-group (it should be called like: "eksctl-kubeflow-sm-nodegroup-cpu-NodeInstanceRole-XXXXXXXXX"). Click "Attach policies" and select the "AmazonSageMakerFullAccess" policy, click on "Attach policy", repeat for the policy "AmazonS3FullAccess". Finally, click on "Trust relationship" and "Edit trust relationship", replace the current policy with the following and hit "Update trust policy".
+
+*Note: normally we would use here the OIDC that we got from the Kubeflow installation above to allow direct client interaction through the SDK with the annotated OIDC, but for the purposes of this workshop we will manually upload the pipeline packages to the Kubeflow Pipelines UI. For more details on the procedure you can check the [documentation here](https://docs.aws.amazon.com/sagemaker/latest/dg/usingamazon-sagemaker-components.html)*
+
 ```
 {
   "Version": "2012-10-17",
@@ -126,7 +129,7 @@ aws eks describe-cluster --name kubeflow-sm --query "cluster.identity.oidc.issue
 }
 ```
 
-Great, you now have a working Kubeflow cluster with integration to Amazon SageMaker and other services like Amazon S3. It is time to start defining the pipelines in the next steps.
+Great, you now have a working Kubeflow cluster and everything setup on Amazon SageMaker and other services like Amazon S3. It is time to start defining the pipelines in the next steps.
 
 ### Lab #1: Creating your first pipeline with Amazon SageMaker Components for Kubeflow
 
@@ -159,8 +162,23 @@ Great, you now have a working Kubeflow cluster with integration to Amazon SageMa
 
 <img src="./images/f3.png" alt="pipeline" width="600"/>
 
-- If you also want to run on-line predictions, you can use the "Predictions" notebook provided (Lab #2).
+- If you also want to run on-line predictions, you can use the "Predictions" notebook provided (Lab #2). Note our model is not having a great accuracy as we shortened the training time for fitting the workshop duration, still, the proper categories are seen among the top of the list.
 
 <img src="./images/f4.png" alt="pipeline" width="600"/>
+
+### Lab #3: Exploring Amazon SageMaker Debugger and Model Monitor
+
+1. Go back to the "Components-pipelines" notebook:
+- Continue with the steps for the Lab #3
+- Now download the resulting file "debugger-monitor-pipeline.tar.gz" to your PC, and open the Kubeflow Pipeline dashboard.
+- Go to Pipelines in the left-menu, and click on "Upload pipeline", write Name and Description "debugger" and select "File" pointing to the file you just downloaded, and hit "Create".
+- Click on "Create experiment", with Name "debugger" and hit "Next".
+- Start your first run with "role_arn" the name of your node-group role from AWS IAM (should be something like: "arn:aws:iam::ACCOUNTID:role/eksctl-kubeflow-sm-nodegroup-cpu-NodeInstanceRole-XXXXXXXXXX"), and "bucket_name" the name of your S3 bucket (should be something like: "sagemaker-us-west-2-ACCOUNTID"), and hit "Start".
+- Access your Run and monitor the execution of each step of the pipeline.
+
+<img src="./images/f5.png" alt="pipeline" width="600"/>
+
+- Now go back to the "Components-pipelines" notebook and continue with the steps there.
+- After running the Model Monitor notebooks, if you want to run on-line predictions you can use the "Predictions" notebook provided (Lab #3).
 
 Congratulations, you have reached the end of this workshop. For learning more, visit the documentation and GitHub examples.
